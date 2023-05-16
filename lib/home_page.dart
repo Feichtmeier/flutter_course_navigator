@@ -57,6 +57,8 @@ class _HomePageState extends State<HomePage> {
         itemBuilder: (context, index) {
           final info = loadImageInfo(index, context);
           return ListTile(
+            contentPadding:
+                const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
             onTap: () => Navigator.push(context, MaterialPageRoute(
               builder: (context) {
                 return ImagePage(
