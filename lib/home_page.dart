@@ -48,7 +48,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('Picsum Browser'),
+      ),
       body: ListView.builder(
         controller: _controller,
         itemCount: items.length,
@@ -83,8 +85,8 @@ class _HomePageState extends State<HomePage> {
       future: _loadImageInfo(id: index),
       builder: (context, snapshot) {
         if (snapshot.hasError) {
-          return Row(
-            children: const [
+          return const Row(
+            children: [
               Icon(Icons.question_mark),
             ],
           );

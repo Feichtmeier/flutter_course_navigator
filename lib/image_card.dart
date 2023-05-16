@@ -31,12 +31,13 @@ class ImageCard extends StatelessWidget {
     );
 
     return Card(
+      margin: EdgeInsets.zero,
       elevation: 3.0,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: Image.network(
           'https://picsum.photos/$width/$height?image=$index',
-          fit: BoxFit.fitWidth,
+          fit: BoxFit.cover,
           errorBuilder: (context, error, stackTrace) {
             return container(
               child: Icon(
