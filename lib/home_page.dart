@@ -115,6 +115,10 @@ class _HomePageState extends State<HomePage> {
     final response =
         await http.get(Uri.parse('https://picsum.photos/id/$id/info'));
 
+    if (response.statusCode != 200) {
+      return Future.error("Network request failed for info $id",
+          StackTrace.fromString("This is its trace"));
+    }
     return ImageInformation.fromJson(response.body);
   }
 }
