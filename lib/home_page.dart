@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_course_navigator/image_card.dart';
 import 'package:flutter_course_navigator/image_page.dart';
@@ -32,11 +34,12 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       items.addAll(
         List.generate(
-          15,
+          30,
           (index) => items.length + index,
         ),
       );
     });
+    _controller.jumpTo(_controller.position.maxScrollExtent + 50);
   }
 
   @override
@@ -62,6 +65,7 @@ class _HomePageState extends State<HomePage> {
             onTap: () => Navigator.push(context, MaterialPageRoute(
               builder: (context) {
                 return ImagePage(
+                  url: 'https://picsum.photos/400/400?image=$index',
                   title: info,
                   child: ImageCard(
                     index: index,
@@ -114,13 +118,13 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<ImageInformation> _loadImageInfo({required int id}) async {
-    final response =
-        await http.get(Uri.parse('https://picsum.photos/id/$id/info'));
+    final address = 'https://picsum.photos/id/$id/info';
+    final uri = Uri.parse(address);
+    final response = await http.get(uri);
 
     if (response.statusCode != 200) {
-      return Future.error("Network request failed for info $id",
-          StackTrace.fromString("This is its trace"));
+      return Future.error('Could not find $address');
     }
-    return ImageInformation.fromJson(response.body);
+    return ImageInformation.fromJson(jsonDecode(response.body));
   }
 }

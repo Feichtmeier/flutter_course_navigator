@@ -5,10 +5,12 @@ class ImagePage extends StatelessWidget {
     super.key,
     this.child,
     this.title,
+    this.url,
   });
 
   final Widget? child;
   final Widget? title;
+  final String? url;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,9 @@ class ImagePage extends StatelessWidget {
         title: title,
       ),
       body: Center(
-        child: child,
+        child: Column(
+          children: [if (child != null) child!, if (url != null) Text(url!)],
+        ),
       ),
     );
   }
