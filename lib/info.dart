@@ -15,13 +15,13 @@ class ImageInformation {
     required this.downloadUrl,
   });
 
-  factory ImageInformation.fromJson(Map<String, dynamic> json) {
-    return ImageInformation(
-        id: json['id'] ?? '',
-        author: json['author'] ?? '',
-        width: json['width']?.toInt() ?? 0,
-        height: json['height']?.toInt() ?? 0,
-        url: json['url'] ?? '',
-        downloadUrl: json['download_url'] ?? '');
-  }
+  ImageInformation.fromJson(Map<String, dynamic> json)
+      : this(
+          id: json['id'] ?? '',
+          author: json['author'] ?? '',
+          width: json['width']?.toInt() ?? 0,
+          height: json['height']?.toInt() ?? 0,
+          url: json['url'] ?? '',
+          downloadUrl: json['download_url'] ?? '',
+        );
 }
