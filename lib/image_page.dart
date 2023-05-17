@@ -20,7 +20,17 @@ class ImagePage extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          children: [if (child != null) child!, if (url != null) Text(url!)],
+          children: [
+            if (child != null) child!,
+            if (url != null)
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  url!,
+                  style: const TextStyle(fontSize: 12),
+                ),
+              )
+          ],
         ),
       ),
     );
