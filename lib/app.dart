@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_course_navigator/home_page.dart';
+import 'package:flutter_course_navigator/theme_data_x.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -7,22 +8,9 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: m3Theme(),
-      darkTheme: m3Theme(brightness: Brightness.dark),
+      theme: Theme.of(context).m3Theme(),
+      darkTheme: Theme.of(context).m3Theme(brightness: Brightness.dark),
       home: const HomePage(),
     );
   }
-}
-
-ThemeData m3Theme({
-  Brightness brightness = Brightness.light,
-  Color color = Colors.yellow,
-}) {
-  return ThemeData(
-    useMaterial3: true,
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: color,
-      brightness: brightness,
-    ),
-  );
 }
