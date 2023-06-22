@@ -70,8 +70,8 @@ class _HomePageState extends State<HomePage> {
                     title: info,
                     child: ImageCard(
                       index: index,
-                      height: 400,
-                      width: 400,
+                      height: 350,
+                      width: 350,
                     ),
                   );
                 },
