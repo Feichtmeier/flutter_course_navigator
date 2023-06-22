@@ -50,7 +50,7 @@ class SecondScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Second Screen'),
+        title: const Text('Zweiter Screen'),
       ),
       body: Center(
         child: ElevatedButton(
