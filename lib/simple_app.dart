@@ -57,7 +57,7 @@ class SecondScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          child: const Text('Go back!'),
+          child: const Text('Nach Hause telefonieren!'),
         ),
       ),
     );
