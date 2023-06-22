@@ -9,9 +9,9 @@ class SimpleApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: Theme.of(context).m3Theme(color: Colors.pink),
+      themeMode: ThemeMode.dark,
       darkTheme: Theme.of(context)
-          .m3Theme(brightness: Brightness.dark, color: Colors.pink),
+          .m3Theme(brightness: Brightness.dark, color: Colors.green),
       initialRoute: '/',
       routes: {
         '/': (context) => const FirstScreen(),
