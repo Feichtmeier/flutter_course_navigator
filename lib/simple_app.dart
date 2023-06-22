@@ -12,6 +12,7 @@ class SimpleApp extends StatelessWidget {
       themeMode: ThemeMode.dark,
       darkTheme: Theme.of(context)
           .m3Theme(brightness: Brightness.dark, color: Colors.green),
+      theme: Theme.of(context).m3Theme(color: Colors.green),
       initialRoute: '/',
       routes: {
         '/': (context) => const FirstScreen(),
